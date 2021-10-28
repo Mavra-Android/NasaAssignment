@@ -1,6 +1,8 @@
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -30,4 +32,9 @@ android {
 
 dependencies {
     implementation(Libs.coreKtx)
+    implementation(Libs.retrofit)
+    implementation(Libs.moshi)
+    implementation(Libs.moshiConverter)
+    implementation(Libs.hilt)
+    kapt(Libs.hiltCompiler)
 }
