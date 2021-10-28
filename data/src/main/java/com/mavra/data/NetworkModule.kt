@@ -30,7 +30,6 @@ object NetworkModule{
         moshi: Moshi
     ) = Retrofit.Builder()
         .baseUrl("")
-        .addConverterFactory()
         .build()
 
 }
