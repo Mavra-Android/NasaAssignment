@@ -15,7 +15,7 @@ object Libs {
     val moshi by lazy { "com.squareup.moshi:moshi-kotlin:${Versions.moshi}" }
     val hilt by lazy { "com.google.dagger:hilt-android:${Versions.hilt}" }
     val hiltCompiler by lazy { "com.google.dagger:hilt-compiler:${Versions.hilt}" }
-    val moshiConverter by lazy { "com.squareup.retrofit2:converter-moshi:${Versions.moshi}" }
+    val moshiConverter by lazy { "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}" }
 }
 
 object Configs {
