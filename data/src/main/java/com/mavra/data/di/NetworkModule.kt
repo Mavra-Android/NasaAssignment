@@ -3,6 +3,7 @@ package com.mavra.data.di
 import com.mavra.data.BuildConfig
 import com.mavra.data.adapters.*
 import com.mavra.data.remote.NasaService
+import com.mavra.data.remote.adapter.ApiResponseCallAdapterFactory
 import com.mavra.data.remote.interceptors.AuthorizationInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.addAdapter
@@ -44,11 +45,13 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(
         moshi: Moshi,
-        client: OkHttpClient
+        client: OkHttpClient,
+        factory: ApiResponseCallAdapterFactory,
     ) =
         Retrofit.Builder()
             .baseUrl(BuildConfig.API_URL)
             .client(client)
+            .addCallAdapterFactory(factory)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
 
