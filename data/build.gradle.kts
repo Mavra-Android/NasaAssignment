@@ -37,6 +37,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":shared"))
     implementation(Libs.coreKtx)
     implementation(Libs.retrofit)
     implementation(Libs.moshi)
