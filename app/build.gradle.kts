@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("kotlin-android-extensions")
     id("kotlin-android")
     id("kotlin-kapt")
 }
