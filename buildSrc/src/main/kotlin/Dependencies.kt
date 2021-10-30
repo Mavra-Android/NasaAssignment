@@ -17,6 +17,14 @@ object Versions {
     const val espresso = "3.4.0"
     const val coroutine = "1.5.2"
     const val arrow = "1.0.0"
+    const val appCompat = "1.3.1"
+    const val material = "1.4.0"
+    const val constraint = "2.1.1"
+    const val navigation_fragment = "2.3.5"
+    const val navigation_ui = "2.3.5"
+    const val junit = "4.+"
+    const val junit_ext = "1.1.3"
+    const val espresso = "3.4.0"
 }
 
 object Libs {
