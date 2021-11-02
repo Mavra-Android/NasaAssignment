@@ -6,15 +6,9 @@ import com.mavra.shared.Mapper
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * @user mustafa.kilic
- * @since 30.10.2021
- */
-
-
 @Singleton
-class UIPhotoMapper @Inject constructor() : Mapper<DtoPhoto, UIPhoto> {
-    override fun mapTo(out: DtoPhoto): UIPhoto = UIPhoto(
-        out.imgSrc
-    )
+class UIPhotoMapperList @Inject constructor(
+    private val uiPhotoMapper: UIPhotoMapper
+) : Mapper<List<DtoPhoto>, List<UIPhoto>> {
+    override fun mapTo(out: List<DtoPhoto>) = out.map { uiPhotoMapper.mapTo(it) }
 }

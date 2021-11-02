@@ -1,9 +1,8 @@
 package com.mavra.data.remote.adapter
 
-import com.mavra.data.model.ApiResponse
+import android.accounts.NetworkErrorException
 import com.mavra.data.model.BaseApiError
 import com.mavra.data.remote.throwables.ApiThrowable
-import com.mavra.data.remote.throwables.NoConnectionException
 import com.mavra.data.remote.throwables.UnauthorizedThrowable
 import com.squareup.moshi.Moshi
 import okhttp3.Request
@@ -18,9 +17,9 @@ import java.net.HttpURLConnection
 class ApiResponseCall<T>(
     private val delegate: Call<T>,
     private val moshi: Moshi,
-) : Call<ApiResponse<T>> {
+) : Call<Result<T>> {
 
-    override fun enqueue(callback: Callback<ApiResponse<T>>) {
+    override fun enqueue(callback: Callback<Result<T>>) {
         return delegate.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
                 val body = response.body()
@@ -35,31 +34,40 @@ class ApiResponseCall<T>(
 
             override fun onFailure(call: Call<T>, throwable: Throwable) {
                 val networkResponse = when (throwable) {
-                    is IOException -> ApiResponse.Error<T>(NoConnectionException())
-                    else -> ApiResponse.Error(throwable)
+                    is IOException -> Result.failure<T>(NetworkErrorException())
+                    else -> Result.failure(throwable)
                 }
-                callback.onResponse(this@ApiResponseCall, Response.success(networkResponse))
+                callback.onResponse(
+                    this@ApiResponseCall,
+                    Response.success(networkResponse)
+                )
             }
         })
     }
 
 
-    private fun onSuccess(callback: Callback<ApiResponse<T>>, body: T?) {
+    private fun onSuccess(callback: Callback<Result<T>>, body: T?) {
         if (body != null) {
-            callback.onResponse(this, Response.success(ApiResponse.Success(body)))
+            callback.onResponse(
+                this,
+                Response.success(Result.success(body))
+            )
         } else {
-            callback.onResponse(this, Response.success(ApiResponse.Success(true as T)))
+            callback.onResponse(
+                this,
+                Response.success(Result.success(true as T))
+            )
         }
     }
 
-    private fun onError(callback: Callback<ApiResponse<T>>, error: ResponseBody?, code: Int) {
+    private fun onError(callback: Callback<Result<T>>, error: ResponseBody?, code: Int) {
         val errorBody = tryConvertErrorBody(error)
         val throwable = when {
             errorBody != null -> ApiThrowable(errorBody.error, code)
             code == HttpURLConnection.HTTP_NOT_AUTHORITATIVE -> UnauthorizedThrowable()
             else -> IllegalStateException()
         }
-        callback.onResponse(this, Response.success(ApiResponse.Error(throwable)))
+        callback.onResponse(this, Response.success(Result.failure(throwable)))
     }
 
     private fun tryConvertErrorBody(error: ResponseBody?): BaseApiError? {
@@ -72,6 +80,7 @@ class ApiResponseCall<T>(
                 null
             }
         }
+
     }
 
     override fun isExecuted() = delegate.isExecuted
@@ -80,7 +89,7 @@ class ApiResponseCall<T>(
     override fun cancel() = delegate.cancel()
     override fun request(): Request = delegate.request()
     override fun timeout(): Timeout = delegate.timeout()
-    override fun execute(): Response<ApiResponse<T>> =
+    override fun execute(): Response<Result<T>> =
         throw UnsupportedOperationException("NetworkResponseCall doesn't support execute")
 
 }

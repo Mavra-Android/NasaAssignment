@@ -37,6 +37,6 @@ dependencies {
     implementation(Libs.hilt)
     implementation(Libs.coroutine)
     kapt(Libs.hiltCompiler)
-    implementation(project(":app"))
+    implementation(project(":presentation"))
     implementation(project(":shared"))
 }

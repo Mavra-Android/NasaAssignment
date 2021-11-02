@@ -2,9 +2,9 @@ package com.mavra.domain.usecases
 
 import com.mavra.domain.BaseFlowUseCase
 import com.mavra.domain.Repository
-import com.mavra.domain.mapper.UIPhotoMapper
-import com.mavra.domain.model.DomainResult
-import com.mavra.nasaassignment.model.UIPhoto
+import com.mavra.domain.mapper.UIPhotoMapperList
+import com.mavra.presentation.model.Resource
+import com.mavra.presentation.model.UIPhoto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -16,16 +16,13 @@ import javax.inject.Inject
 
 class FetchPhotoUseCase @Inject constructor(
     private val repository: Repository,
-    private val uiPhotoMapper: UIPhotoMapper
+    private val uiPhotoMapper: UIPhotoMapperList
 ) : BaseFlowUseCase<FetchPhotoUseCase.Request, FetchPhotoUseCase.Result>() {
 
-    override fun execute(request: Request): Flow<DomainResult<Result>> = flow {
-        val response = repository.fetchPhotos(
-            request.roverType,
-            request.camera
-        )
-        response.
-        emit(Result(response))
+    override fun execute(request: Request): Flow<Resource<Result>> = flow<Resource<Result>> {
+        val response = repository.fetchPhotos(request.roverType, request.camera)
+        val result = Result(uiPhotoMapper.mapTo(response))
+        emit(Resource.Success(result))
     }
 
     data class Request(
@@ -33,9 +30,6 @@ class FetchPhotoUseCase @Inject constructor(
         val camera: String?
     )
 
-    /**
-     * Result wrapped because , it will Generate with live template
-     */
     data class Result(
         val photos: List<UIPhoto> = listOf()
     )

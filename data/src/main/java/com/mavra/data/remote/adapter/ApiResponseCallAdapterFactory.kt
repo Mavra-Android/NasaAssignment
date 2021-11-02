@@ -1,6 +1,5 @@
 package com.mavra.data.remote.adapter
 
-import com.mavra.data.model.ApiResponse
 import com.squareup.moshi.Moshi
 import retrofit2.Call
 import retrofit2.CallAdapter
@@ -28,7 +27,7 @@ class ApiResponseCallAdapterFactory @Inject constructor(
             "return type must be parameterized as Call<ApiResponse<<Foo>> or Call<ApiResponse<out Foo>>"
         }
         val responseType = getParameterUpperBound(0, returnType)
-        if (getRawType(responseType) != ApiResponse::class.java) {
+        if (getRawType(responseType) != Result::class.java) {
             return null
         }
         check(responseType is ParameterizedType) { "Response must be parameterized as NetworkResponse<Foo> or NetworkResponse<out Foo>" }
@@ -40,9 +39,9 @@ class ApiResponseCallAdapterFactory @Inject constructor(
 
     inner class ApiResponseCallAdapter<T>(
         private val responseType: Type,
-    ) : CallAdapter<T, Call<ApiResponse<T>>> {
+    ) : CallAdapter<T, Call<Result<T>>> {
         override fun responseType(): Type = responseType
-        override fun adapt(call: Call<T>): Call<ApiResponse<T>> =
+        override fun adapt(call: Call<T>): Call<Result<T>> =
             ApiResponseCall(call, moshi)
     }
 

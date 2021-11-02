@@ -1,6 +1,6 @@
 package com.mavra.data.remote
 
-import com.mavra.data.mapper.DomainResultPhotoMapper
+import com.mavra.data.mapper.DtoPhotoMapper
 import javax.inject.Inject
 
 /**
@@ -9,8 +9,12 @@ import javax.inject.Inject
  */
 class RemoteDataSource @Inject constructor(
     private val nasaService: NasaService,
-    private val domainResultPhotoMapper: DomainResultPhotoMapper
+    private val photoMapper: DtoPhotoMapper
 ) {
+
     suspend fun fetchPhotos(roverType: String, camera: String? = null) =
-        domainResultPhotoMapper.mapTo(nasaService.fetchPhotos(roverType, camera = camera))
+        nasaService.fetchPhotos(roverType, camera = camera).getOrThrow()
+            .photos.map { photoMapper.mapTo(it) }
+
+
 }

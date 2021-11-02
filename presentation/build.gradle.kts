@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -37,4 +36,5 @@ dependencies {
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
     kapt(Libs.hiltCompiler)
+    implementation(project(":app"))
 }
