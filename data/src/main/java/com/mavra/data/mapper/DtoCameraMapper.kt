@@ -8,10 +8,7 @@ import javax.inject.Singleton
 
 @Singleton
 class DtoCameraMapper @Inject constructor() : Mapper<Camera, DtoCamera> {
-    override fun mapTo(out: Camera): DtoCamera =
-        DtoCamera(
-            out.fullName
-        )
+    override fun mapTo(out: Camera): DtoCamera = DtoCamera(out.fullName)
 }
 
 

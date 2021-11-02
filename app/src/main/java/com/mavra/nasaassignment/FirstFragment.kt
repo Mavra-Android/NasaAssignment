@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.mavra.nasaassignment.databinding.FragmentFirstBinding
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * A simple [Fragment] subclass as the default destination in the nxavigation.
  */
 class FirstFragment : Fragment() {
 

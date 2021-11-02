@@ -15,6 +15,8 @@ object Versions {
     const val junit = "4.+"
     const val junit_ext = "1.1.3"
     const val espresso = "3.4.0"
+    const val coroutine = "1.5.2"
+    const val arrow = "1.0.0"
 }
 
 object Libs {
@@ -32,6 +34,8 @@ object Libs {
     val junit by lazy { "junit:junit:${Versions.junit}"}
     val junit_ext by lazy { "androidx.test.ext:junit:${Versions.junit_ext}"}
     val espresso by lazy { "androidx.test.espresso:espresso-core:${Versions.espresso}"}
+    val coroutine by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}" }
+    val arrow by lazy { "io.arrow-kt:arrow-core:${Versions.arrow}" }
 }
 
 object Configs {
@@ -55,3 +59,4 @@ object Options {
     val sourceCompatibility = JavaVersion.VERSION_1_8
     val targetCompatibility = JavaVersion.VERSION_1_8
 }
+

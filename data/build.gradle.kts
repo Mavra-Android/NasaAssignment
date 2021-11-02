@@ -44,5 +44,6 @@ dependencies {
     implementation(Libs.moshi)
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
+    implementation(Libs.arrow)
     kapt(Libs.hiltCompiler)
 }
