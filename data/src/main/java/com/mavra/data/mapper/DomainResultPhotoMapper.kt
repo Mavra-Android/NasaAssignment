@@ -12,8 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class DomainResultPhotoMapper @Inject constructor(
     private val dtoPhotoMapper: DtoPhotoMapper
-) :
-    Mapper<ApiResponse<Photos>, DomainResult<List<DtoPhoto>>> {
+) : Mapper<ApiResponse<Photos>, DomainResult<List<DtoPhoto>>> {
     override fun mapTo(out: ApiResponse<Photos>): DomainResult<List<DtoPhoto>> {
         return when (out) {
             is ApiResponse.Error -> DomainResult.Error(out.error)

@@ -15,14 +15,14 @@ import retrofit2.Response
 import java.io.IOException
 import java.net.HttpURLConnection
 
-class ApiResponseCall<S>(
-    private val delegate: Call<S>,
+class ApiResponseCall<T>(
+    private val delegate: Call<T>,
     private val moshi: Moshi,
-) : Call<ApiResponse<S>> {
+) : Call<ApiResponse<T>> {
 
-    override fun enqueue(callback: Callback<ApiResponse<S>>) {
-        return delegate.enqueue(object : Callback<S> {
-            override fun onResponse(call: Call<S>, response: Response<S>) {
+    override fun enqueue(callback: Callback<ApiResponse<T>>) {
+        return delegate.enqueue(object : Callback<T> {
+            override fun onResponse(call: Call<T>, response: Response<T>) {
                 val body = response.body()
                 val code = response.code()
                 val error = response.errorBody()
@@ -33,9 +33,9 @@ class ApiResponseCall<S>(
                 }
             }
 
-            override fun onFailure(call: Call<S>, throwable: Throwable) {
+            override fun onFailure(call: Call<T>, throwable: Throwable) {
                 val networkResponse = when (throwable) {
-                    is IOException -> ApiResponse.Error<S>(NoConnectionException())
+                    is IOException -> ApiResponse.Error<T>(NoConnectionException())
                     else -> ApiResponse.Error(throwable)
                 }
                 callback.onResponse(this@ApiResponseCall, Response.success(networkResponse))
@@ -44,15 +44,15 @@ class ApiResponseCall<S>(
     }
 
 
-    private fun onSuccess(callback: Callback<ApiResponse<S>>, body: S?) {
+    private fun onSuccess(callback: Callback<ApiResponse<T>>, body: T?) {
         if (body != null) {
             callback.onResponse(this, Response.success(ApiResponse.Success(body)))
         } else {
-            callback.onResponse(this, Response.success(ApiResponse.Success(true as S)))
+            callback.onResponse(this, Response.success(ApiResponse.Success(true as T)))
         }
     }
 
-    private fun onError(callback: Callback<ApiResponse<S>>, error: ResponseBody?, code: Int) {
+    private fun onError(callback: Callback<ApiResponse<T>>, error: ResponseBody?, code: Int) {
         val errorBody = tryConvertErrorBody(error)
         val throwable = when {
             errorBody != null -> ApiThrowable(errorBody.error, code)
@@ -80,7 +80,7 @@ class ApiResponseCall<S>(
     override fun cancel() = delegate.cancel()
     override fun request(): Request = delegate.request()
     override fun timeout(): Timeout = delegate.timeout()
-    override fun execute(): Response<ApiResponse<S>> =
+    override fun execute(): Response<ApiResponse<T>> =
         throw UnsupportedOperationException("NetworkResponseCall doesn't support execute")
 
 }
