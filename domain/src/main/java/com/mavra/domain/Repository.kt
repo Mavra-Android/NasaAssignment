@@ -1,6 +1,5 @@
 package com.mavra.domain
 
-import com.mavra.domain.model.DomainResult
 import com.mavra.domain.model.DtoPhoto
 
 /**

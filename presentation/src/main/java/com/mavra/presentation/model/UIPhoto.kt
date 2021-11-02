@@ -1,4 +1,4 @@
-package com.mavra.nasaassignment.model
+package com.mavra.presentation.model
 
 /**
  * @user mustafa.kilic

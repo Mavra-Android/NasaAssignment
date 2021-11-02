@@ -2,7 +2,6 @@ package com.mavra.data
 
 import com.mavra.data.remote.RemoteDataSource
 import com.mavra.domain.Repository
-import com.mavra.domain.model.DomainResult
 import com.mavra.domain.model.DtoPhoto
 
 /**
@@ -17,5 +16,5 @@ class RepositoryImp(
     override suspend fun fetchPhotos(
         roverType: String,
         camera: String?
-    ): DomainResult<List<DtoPhoto>> = remoteDataSource.fetchPhotos(roverType, camera)
+    ): List<DtoPhoto> = remoteDataSource.fetchPhotos(roverType, camera)
 }

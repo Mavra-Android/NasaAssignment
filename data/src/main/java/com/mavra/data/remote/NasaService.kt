@@ -1,6 +1,5 @@
 package com.mavra.data.remote
 
-import com.mavra.data.model.ApiResponse
 import com.mavra.data.model.Photos
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,7 +16,7 @@ interface NasaService {
         @Query("page") page: Int = 1,
         @Query("sol") sol: Int = 1000,
         @Query("camera") camera: String? = null,
-    ): ApiResponse<Photos>
+    ): Result<Photos>
 }
 
 
