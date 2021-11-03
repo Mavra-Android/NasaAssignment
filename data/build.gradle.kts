@@ -37,10 +37,13 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":shared"))
     implementation(Libs.coreKtx)
     implementation(Libs.retrofit)
     implementation(Libs.moshi)
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
+    implementation(Libs.arrow)
     kapt(Libs.hiltCompiler)
 }

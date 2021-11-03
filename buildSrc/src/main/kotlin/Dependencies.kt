@@ -7,6 +7,8 @@ object Versions {
     const val moshi = "1.12.0"
     const val hilt = "2.40"
     const val build = "7.0.3"
+    const val coroutine = "1.5.2"
+    const val arrow = "1.0.0"
 }
 
 object Libs {
@@ -16,6 +18,8 @@ object Libs {
     val hilt by lazy { "com.google.dagger:hilt-android:${Versions.hilt}" }
     val hiltCompiler by lazy { "com.google.dagger:hilt-compiler:${Versions.hilt}" }
     val moshiConverter by lazy { "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}" }
+    val coroutine by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}" }
+    val arrow by lazy { "io.arrow-kt:arrow-core:${Versions.arrow}" }
 }
 
 object Configs {
@@ -36,3 +40,4 @@ object Options {
     val sourceCompatibility = JavaVersion.VERSION_1_8
     val targetCompatibility = JavaVersion.VERSION_1_8
 }
+
