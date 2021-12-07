@@ -1,4 +1,4 @@
-package com.mavra.presentation.model
+package com.mavra.domain.model
 
 /**
  * @user mustafa.kilic

@@ -3,8 +3,8 @@ package com.mavra.domain.usecases
 import com.mavra.domain.BaseFlowUseCase
 import com.mavra.domain.Repository
 import com.mavra.domain.mapper.UIPhotoMapperList
-import com.mavra.presentation.model.Resource
-import com.mavra.presentation.model.UIPhoto
+import com.mavra.domain.model.Resource
+import com.mavra.domain.model.UIPhoto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -19,9 +19,10 @@ class FetchPhotoUseCase @Inject constructor(
     private val uiPhotoMapper: UIPhotoMapperList
 ) : BaseFlowUseCase<FetchPhotoUseCase.Request, FetchPhotoUseCase.Result>() {
 
+
     override fun execute(request: Request): Flow<Resource<Result>> = flow<Resource<Result>> {
         val response = repository.fetchPhotos(request.roverType, request.camera)
-        val result = Result(uiPhotoMapper.mapTo(response))
+        val result = Result(response.map { uiPhotoMapper.mapTo(it) })
         emit(Resource.Success(result))
     }
 

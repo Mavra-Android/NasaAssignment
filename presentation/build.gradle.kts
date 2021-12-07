@@ -36,5 +36,6 @@ dependencies {
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
     kapt(Libs.hiltCompiler)
-    implementation(project(":app"))
+    implementation(project(":domain"))
+    implementation(project(":shared"))
 }

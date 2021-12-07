@@ -1,6 +1,6 @@
 package com.mavra.domain
 
-import com.mavra.presentation.model.Resource
+import com.mavra.domain.model.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
@@ -14,6 +14,9 @@ import kotlinx.coroutines.flow.onStart
 
 abstract class BaseFlowUseCase<in In, Out> {
     protected abstract fun execute(request: In): Flow<Resource<Out>>
+    open fun isShowLoading(){
+
+    }
 
     open fun invoke(request: In) = execute(request)
         .onStart {
