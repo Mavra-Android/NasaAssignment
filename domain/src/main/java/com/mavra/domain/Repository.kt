@@ -1,6 +1,6 @@
 package com.mavra.domain
 
-import com.mavra.data.model.Photo
+import com.mavra.domain.model.DomainPhoto
 
 /**
  * @user mustafa.kilic
@@ -8,5 +8,5 @@ import com.mavra.data.model.Photo
  */
 interface Repository {
 
-    suspend fun fetchPhotos(roverType: String, camera: String? = null): List<Photo>
+    suspend fun fetchPhotos(roverType: String, camera: String? = null): List<DomainPhoto>
 }

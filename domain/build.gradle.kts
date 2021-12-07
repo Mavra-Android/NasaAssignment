@@ -38,6 +38,5 @@ dependencies {
     implementation(Libs.coroutine)
     kapt(Libs.hiltCompiler)
     implementation(project(":shared"))
-    implementation(project(":data"))
 
 }

@@ -1,8 +1,10 @@
 package com.mavra.data
 
-import com.mavra.data.model.Photo
+import com.mavra.data.mapper.DomainPhotoMapper
+import com.mavra.data.model.PhotoResponse
 import com.mavra.data.remote.RemoteDataSource
 import com.mavra.domain.Repository
+import com.mavra.domain.model.DomainPhoto
 
 /**
  * @user mustafa.kilic
@@ -10,11 +12,12 @@ import com.mavra.domain.Repository
  */
 
 class RepositoryImp(
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val domainPhotoMapper: DomainPhotoMapper
 ) : Repository {
 
     override suspend fun fetchPhotos(
         roverType: String,
         camera: String?
-    ): List<Photo> = remoteDataSource.fetchPhotos(roverType, camera)
+    ): List<DomainPhoto> = remoteDataSource.fetchPhotos(roverType, camera).map { domainPhotoMapper.mapTo(it) }
 }

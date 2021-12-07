@@ -2,7 +2,7 @@ package com.mavra.data.model
 
 import com.squareup.moshi.Json
 
-data class Camera(
+data class CameraResponse(
     val id: String,
     val name: String,
     @Json(name = "rover_id")

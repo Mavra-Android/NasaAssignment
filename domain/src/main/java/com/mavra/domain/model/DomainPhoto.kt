@@ -5,6 +5,6 @@ package com.mavra.domain.model
  * @since 30.10.2021
  */
 
-data class UIPhoto(
+data class DomainPhoto(
     val name: String
 )

@@ -5,6 +5,6 @@ package com.mavra.data.model
  * @since 28.10.2021
  */
 
-data class Photos(
-    val photos: List<Photo>
+data class PhotosResponse(
+    val photos: List<PhotoResponse>
 )

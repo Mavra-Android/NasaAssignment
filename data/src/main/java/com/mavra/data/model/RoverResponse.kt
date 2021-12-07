@@ -2,7 +2,7 @@ package com.mavra.data.model
 
 import com.squareup.moshi.Json
 
-data class Rover(
+data class RoverResponse(
     val id: String,
     val name: String,
     val status: String,

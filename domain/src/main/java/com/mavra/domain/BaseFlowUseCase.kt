@@ -13,10 +13,7 @@ import kotlinx.coroutines.flow.onStart
 
 
 abstract class BaseFlowUseCase<in In, Out> {
-    protected abstract fun execute(request: In): Flow<Resource<Out>>
-    open fun isShowLoading(){
-
-    }
+    abstract fun execute(request: In): Flow<Resource<Out>>
 
     open fun invoke(request: In) = execute(request)
         .onStart {

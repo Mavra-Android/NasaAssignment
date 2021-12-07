@@ -2,11 +2,11 @@ package com.mavra.data.model
 
 import com.squareup.moshi.Json
 
-data class Photo(
+data class PhotoResponse(
     val id: String,
     val sol: Long,
-    val camera: Camera? = null,
-    val rover: Rover? = null,
+    val cameraResponse: CameraResponse? = null,
+    val roverResponse: RoverResponse? = null,
     @Json(name = "earth_date")
     val earthDate: String,
     @Json(name = "img_src")

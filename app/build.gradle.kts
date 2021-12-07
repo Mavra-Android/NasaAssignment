@@ -50,4 +50,6 @@ dependencies {
     androidTestImplementation(Libs.junit_ext)
     androidTestImplementation(Libs.espresso)
     kapt(Libs.hiltCompiler)
+    implementation(project(":presentation"))
+
 }
