@@ -57,6 +57,6 @@ object NetworkModule {
             .build()
 
     @Provides
-    fun provideRoverService(retrofit: Retrofit) =
+    fun provideRoverService(retrofit: Retrofit):NasaService =
         retrofit.create<NasaService>()
 }

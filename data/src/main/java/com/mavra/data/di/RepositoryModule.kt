@@ -1,11 +1,15 @@
 package com.mavra.data.di
 
 import com.mavra.data.RepositoryImp
+import com.mavra.data.mapper.DomainPhotoMapper
+import com.mavra.data.remote.NasaService
 import com.mavra.data.remote.RemoteDataSource
 import com.mavra.domain.Repository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 
 /**
@@ -15,11 +19,12 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+class RepositoryModule {
 
     @Provides
     fun provideRepository(
-        remoteDataSource: RemoteDataSource
-    ) = RepositoryImp(remoteDataSource) as Repository
+        remoteDataSource: RemoteDataSource,
+        domainPhotoMapper: DomainPhotoMapper
+    ):Repository = RepositoryImp(remoteDataSource,domainPhotoMapper)
 
 }

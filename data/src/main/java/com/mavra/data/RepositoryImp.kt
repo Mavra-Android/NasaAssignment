@@ -5,13 +5,14 @@ import com.mavra.data.model.PhotoResponse
 import com.mavra.data.remote.RemoteDataSource
 import com.mavra.domain.Repository
 import com.mavra.domain.model.DomainPhoto
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * @user mustafa.kilic
  * @since 30.10.2021
  */
-
-class RepositoryImp(
+class RepositoryImp @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val domainPhotoMapper: DomainPhotoMapper
 ) : Repository {
