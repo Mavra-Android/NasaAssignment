@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -36,7 +37,9 @@ dependencies {
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
     implementation(Libs.coroutine)
-    implementation("androidx.navigation:navigation-fragment-ktx:2.0.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation(Libs.navigationFragment)
+    implementation(Libs.navigationUI)
     kapt(Libs.hiltCompiler)
+    implementation(project(":domain"))
+    implementation(project(":shared"))
 }
