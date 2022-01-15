@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 
@@ -46,6 +47,9 @@ dependencies {
     implementation(Libs.constaint)
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
+    implementation(project(":features:vehicle_list"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.junit_ext)
     androidTestImplementation(Libs.espresso)

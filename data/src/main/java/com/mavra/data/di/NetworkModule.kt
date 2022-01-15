@@ -16,6 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 
+
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
@@ -46,9 +47,9 @@ object NetworkModule {
     fun provideRetrofit(
         moshi: Moshi,
         client: OkHttpClient,
-        factory: ApiResponseCallAdapterFactory,
-    ) =
-        Retrofit.Builder()
+        factory: ApiResponseCallAdapterFactory) =
+            Retrofit
+            .Builder()
             .baseUrl(BuildConfig.API_URL)
             .client(client)
             .addCallAdapterFactory(factory)
@@ -56,6 +57,6 @@ object NetworkModule {
             .build()
 
     @Provides
-    fun provideRoverService(retrofit: Retrofit) =
+    fun provideRoverService(retrofit: Retrofit):NasaService =
         retrofit.create<NasaService>()
 }

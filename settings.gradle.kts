@@ -2,5 +2,6 @@ rootProject.name = "NasaAssignment"
 include(":app")
 include(":domain")
 include(":data")
-include(":presentation")
 include(":shared")
+include(":features")
+include(":features:vehicle_list")
