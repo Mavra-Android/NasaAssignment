@@ -1,21 +1,17 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
 }
-
 
 android {
     compileSdk = Configs.compileSdk
-    defaultConfig{
-        applicationId = Configs.applicationId
-        versionCode = Configs.versionCode
-        versionName = Configs.versionName
+    defaultConfig {
         minSdk = Configs.minSdk
         targetSdk = Configs.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -24,7 +20,6 @@ android {
             )
         }
     }
-
     compileOptions {
         sourceCompatibility = Options.sourceCompatibility
         targetCompatibility = Options.targetCompatibility
@@ -32,24 +27,16 @@ android {
     kotlinOptions {
         jvmTarget = Options.jvmTarget
     }
-    viewBinding{
-        isEnabled = true
-    }
-
-
 }
 
 dependencies {
     implementation(Libs.coreKtx)
+    implementation(Libs.retrofit)
+    implementation(Libs.moshi)
+    implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
-    implementation(Libs.appCompat)
-    implementation(Libs.material)
-    implementation(Libs.constaint)
-    implementation(Libs.navigationFragment)
-    implementation(Libs.navigationUI)
-    implementation(project(mapOf("path" to ":features:vehicle_list")))
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.junit_ext)
-    androidTestImplementation(Libs.espresso)
+    implementation(Libs.coroutine)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.0.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     kapt(Libs.hiltCompiler)
 }
