@@ -1,7 +1,7 @@
 import org.gradle.api.JavaVersion
 
 object Versions {
-    const val kotlin = "1.5.31"
+    const val kotlin = "1.6.0"
     const val coreKtx = "1.6.0"
     const val retrofit = "2.9.0"
     const val moshi = "1.12.0"

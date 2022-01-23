@@ -7,7 +7,6 @@ import com.mavra.domain.model.DomainPhoto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * @user mustafa.kilic

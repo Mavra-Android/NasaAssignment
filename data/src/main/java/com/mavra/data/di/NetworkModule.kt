@@ -7,6 +7,7 @@ import com.mavra.data.remote.adapter.ApiResponseCallAdapterFactory
 import com.mavra.data.remote.interceptors.AuthorizationInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.addAdapter
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,6 +34,7 @@ object NetworkModule {
             .add(String::class.java, jsonAdapterString)
             .add(Int::class.java, jsonAdapterInt)
             .add(Long::class.java, jsonAdapterLong)
+            .add(KotlinJsonAdapterFactory())
             .build()
 
     @Provides

@@ -12,10 +12,10 @@ import javax.inject.Inject
 @HiltViewModel
 class VehicleListVM @Inject constructor(private val fetchPhotoUseCase: FetchPhotoUseCase) :
     ViewModel() {
-
+    
     fun getTest() {
         viewModelScope.launch {
-            fetchPhotoUseCase.execute(FetchPhotoUseCase.Request("", "")).collect {
+            fetchPhotoUseCase.execute(FetchPhotoUseCase.Request("curiosity", "")).collect {
 
             }
         }
