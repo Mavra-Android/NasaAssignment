@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/vehicle_list_navigation">
+    app:startDestination="@id/common_graph">
 
-    <include app:graph="@navigation/vehicle_list_navigation"/>
+    <include app:graph="@navigation/common_graph"/>
 
 </navigation>

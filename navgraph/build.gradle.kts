@@ -2,9 +2,9 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs")
 }
+
 
 android {
     compileSdk = Configs.compileSdk
@@ -32,16 +32,6 @@ android {
 }
 
 dependencies {
-    implementation(Libs.coreKtx)
-    implementation(Libs.retrofit)
-    implementation(Libs.moshi)
-    implementation(Libs.moshiConverter)
-    implementation(Libs.hilt)
-    implementation(Libs.coroutine)
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
-    kapt(Libs.hiltCompiler)
-    implementation(project(":domain"))
-    implementation(project(":shared"))
-    implementation(project(":navgraph"))
 }
