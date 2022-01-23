@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs")
 }
 
 
@@ -48,6 +49,7 @@ dependencies {
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
     implementation(project(":features:vehicle_list"))
+    implementation(project(":navgraph"))
     implementation(project(":domain"))
     implementation(project(":data"))
     testImplementation(Libs.junit)

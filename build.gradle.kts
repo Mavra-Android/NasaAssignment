@@ -8,7 +8,8 @@ buildscript {
         classpath(ClassPlugins.build)
         classpath(ClassPlugins.kotlin)
         classpath(ClassPlugins.hilt)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
     }
 }
 
