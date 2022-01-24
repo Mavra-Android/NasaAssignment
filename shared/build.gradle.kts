@@ -36,5 +36,8 @@ dependencies {
     implementation(Libs.moshi)
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
+    implementation(Libs.recylerview)
+    implementation(Libs.glide)
+    annotationProcessor(Libs.glideProcess)
     kapt(Libs.hiltCompiler)
 }

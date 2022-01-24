@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = Options.jvmTarget
     }
+    viewBinding{
+        isEnabled = true
+    }
 }
 
 dependencies {
@@ -40,6 +43,7 @@ dependencies {
     implementation(Libs.coroutine)
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
+    implementation(Libs.constaint)
     kapt(Libs.hiltCompiler)
     implementation(project(":domain"))
     implementation(project(":shared"))
