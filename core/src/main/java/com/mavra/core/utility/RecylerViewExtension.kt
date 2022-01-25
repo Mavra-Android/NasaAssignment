@@ -1,4 +1,4 @@
-package com.mavra.shared.utility
+package com.mavra.core.utility
 
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat

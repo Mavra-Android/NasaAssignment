@@ -1,7 +1,6 @@
-package com.mavra.shared.utility
+package com.mavra.core.utility
 
 import android.widget.ImageView
-import androidx.core.widget.ImageViewCompat
 import com.bumptech.glide.Glide
 
 fun ImageView.loadImage(url:String){

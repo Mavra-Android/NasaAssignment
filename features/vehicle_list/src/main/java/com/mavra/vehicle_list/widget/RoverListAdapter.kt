@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mavra.domain.model.DomainPhoto
-import com.mavra.shared.utility.loadImage
+import com.mavra.core.utility.loadImage
 import com.mavra.vehicle_list.databinding.RowRoverBinding
 
 class RoverListAdapter : ListAdapter<DomainPhoto,RoverListAdapter.ViewHolder>(DiffCallback()) {

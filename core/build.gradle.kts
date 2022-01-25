@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -28,13 +27,21 @@ android {
     kotlinOptions {
         jvmTarget = Options.jvmTarget
     }
+    viewBinding{
+        isEnabled = true
+    }
 }
 
 dependencies {
     implementation(Libs.coreKtx)
-    implementation(Libs.retrofit)
     implementation(Libs.moshi)
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
+    implementation(Libs.coroutine)
+    implementation(Libs.appCompat)
+    implementation(Libs.material)
     kapt(Libs.hiltCompiler)
+    implementation(Libs.recylerview)
+    implementation(Libs.glide)
+    annotationProcessor(Libs.glideProcess)
 }
