@@ -1,22 +1,17 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
-    id("androidx.navigation.safeargs")
 }
-
 
 android {
     compileSdk = Configs.compileSdk
-    defaultConfig{
-        applicationId = Configs.applicationId
-        versionCode = Configs.versionCode
-        versionName = Configs.versionName
+    defaultConfig {
         minSdk = Configs.minSdk
         targetSdk = Configs.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -25,7 +20,6 @@ android {
             )
         }
     }
-
     compileOptions {
         sourceCompatibility = Options.sourceCompatibility
         targetCompatibility = Options.targetCompatibility
@@ -36,25 +30,17 @@ android {
     viewBinding{
         isEnabled = true
     }
-
-
 }
 
 dependencies {
-    implementation(Libs.coreKtx)
-    implementation(Libs.hilt)
     implementation(Libs.appCompat)
     implementation(Libs.material)
-    implementation(Libs.constaint)
-    implementation(Libs.navigationFragment)
-    implementation(Libs.navigationUI)
-    implementation(project(":features:vehicle_list"))
-    implementation(project(":navgraph"))
-    implementation(project(":domain"))
-    implementation(project(":data"))
-    implementation(project(":core"))
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.junit_ext)
-    androidTestImplementation(Libs.espresso)
     kapt(Libs.hiltCompiler)
+    implementation(Libs.recylerview)
+    implementation(Libs.glide)
+    annotationProcessor(Libs.glideProcess)
+    implementation(Libs.coreKtx)
+    implementation(Libs.coroutine)
+    implementation(Libs.lifeCycleViewModel)
+    implementation(project(":domain"))
 }

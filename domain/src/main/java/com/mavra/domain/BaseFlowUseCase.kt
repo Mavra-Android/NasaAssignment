@@ -18,12 +18,11 @@ abstract class BaseFlowUseCase<in In, Out> {
     open fun invoke(request: In) = execute(request)
         .onStart {
             emit(Resource.Loading(true))
-        }
-        .onCompletion {
+        }.onCompletion {
             emit(Resource.Loading(false))
         }
         .catch { t ->
-            emit(Resource.Error(t))
+            emit(Resource.Error(error = t))
         }
 }
 

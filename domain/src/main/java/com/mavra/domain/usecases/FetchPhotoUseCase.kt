@@ -15,21 +15,17 @@ import javax.inject.Inject
 
 class FetchPhotoUseCase @Inject constructor(
     private val repository: Repository
-) : BaseFlowUseCase<FetchPhotoUseCase.Request, FetchPhotoUseCase.Result>() {
+) : BaseFlowUseCase<FetchPhotoUseCase.Request, List<DomainPhoto>>() {
 
 
-    override fun execute(request: Request): Flow<Resource<Result>> = flow<Resource<Result>> {
-        val response = repository.fetchPhotos(request.roverType, request.camera)
-        val result = Result(response)
-        emit(Resource.Success(result))
+    override fun execute(request: Request): Flow<Resource<List<DomainPhoto>>> = flow<Resource<List<DomainPhoto>>> {
+        val response = repository.fetchPhotos(request.roverType)
+        emit(Resource.Success(data = response))
     }
 
     data class Request(
-        val roverType: String,
-        val camera: String?
+        val roverType: String
     )
 
-    data class Result(
-        val photos: List<DomainPhoto> = listOf()
-    )
+
 }
