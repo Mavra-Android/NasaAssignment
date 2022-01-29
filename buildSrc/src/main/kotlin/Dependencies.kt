@@ -19,6 +19,7 @@ object Versions {
     const val arrow = "1.0.0"
     const val recylerview = "1.2.1"
     const val glide = "4.12.0"
+    val viewModelLifeCycle = "2.2.0"
 }
 
 object Libs {
@@ -41,6 +42,7 @@ object Libs {
     val recylerview by lazy { "androidx.recyclerview:recyclerview:${Versions.recylerview}" }
     val glide by lazy { "com.github.bumptech.glide:glide:${Versions.glide}" }
     val glideProcess by lazy { "com.github.bumptech.glide:compiler:${Versions.glide}" }
+    val lifeCycleViewModel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelLifeCycle}" }
 }
 
 object Configs {

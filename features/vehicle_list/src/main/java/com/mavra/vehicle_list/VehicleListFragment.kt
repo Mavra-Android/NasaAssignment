@@ -36,4 +36,10 @@ class VehicleListFragment : BaseFragment<VehicleListVM, FragmentVehicleListBindi
         adapter.vertical(binding.rvVehicleList)
     }
 
+    override fun onDestroyView() {
+        binding.rvVehicleList.adapter = null
+        binding.rvVehicleList.layoutManager = null
+        super.onDestroyView()
+    }
+
 }

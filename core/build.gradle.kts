@@ -33,15 +33,14 @@ android {
 }
 
 dependencies {
-    implementation(Libs.coreKtx)
-    implementation(Libs.moshi)
-    implementation(Libs.moshiConverter)
-    implementation(Libs.hilt)
-    implementation(Libs.coroutine)
     implementation(Libs.appCompat)
     implementation(Libs.material)
     kapt(Libs.hiltCompiler)
     implementation(Libs.recylerview)
     implementation(Libs.glide)
     annotationProcessor(Libs.glideProcess)
+    implementation(Libs.coreKtx)
+    implementation(Libs.coroutine)
+    implementation(Libs.lifeCycleViewModel)
+    implementation(project(":domain"))
 }
