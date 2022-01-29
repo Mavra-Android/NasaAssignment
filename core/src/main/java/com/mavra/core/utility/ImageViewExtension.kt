@@ -1,10 +1,10 @@
 package com.mavra.core.utility
 
-import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.mavra.core.components.ImageViewComponent
 
-fun ImageView.loadImage(url: String) {
+fun ImageViewComponent.loadImage(url: String) {
     Glide
         .with(context)
         .load(url)
