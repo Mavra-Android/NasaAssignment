@@ -13,7 +13,7 @@ class RoverListAdapter : ListAdapter<DomainPhoto,RoverListAdapter.ViewHolder>(Di
 
     inner class ViewHolder(val binding: RowRoverBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(domainPhoto: DomainPhoto){
-            binding.ivRover.loadImage(domainPhoto.name)
+            binding.ivRover.loadImage(domainPhoto.imagePath)
         }
     }
 
@@ -30,7 +30,7 @@ class RoverListAdapter : ListAdapter<DomainPhoto,RoverListAdapter.ViewHolder>(Di
     private class DiffCallback : DiffUtil.ItemCallback<DomainPhoto>() {
 
         override fun areItemsTheSame(oldItem: DomainPhoto, newItem: DomainPhoto) =
-            oldItem.name == newItem.name
+            oldItem.imageId == newItem.imageId
 
         override fun areContentsTheSame(oldItem: DomainPhoto, newItem: DomainPhoto) =
             oldItem == newItem

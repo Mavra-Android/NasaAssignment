@@ -1,4 +1,4 @@
-package com.mavra.core.components
+package com.mavra.core.components.base_components
 
 import android.content.Context
 import android.util.AttributeSet

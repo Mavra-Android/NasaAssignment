@@ -6,5 +6,7 @@ package com.mavra.domain.model
  */
 
 data class DomainPhoto(
-    val name: String
+    val imageId:String,
+    val data:String,
+    val imagePath: String
 )
