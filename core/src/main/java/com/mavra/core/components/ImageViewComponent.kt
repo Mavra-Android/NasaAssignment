@@ -4,6 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 
-class ImageViewComponent(context: Context, attrs: AttributeSet?, defStyleAttr: Int):
-    AppCompatImageView(context, attrs, defStyleAttr) {
+open class ImageViewComponent constructor(context: Context, attrs: AttributeSet?) : AppCompatImageView(context, attrs) {
+
 }

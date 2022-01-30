@@ -9,6 +9,7 @@ fun ImageViewComponent.loadImage(url: String) {
     Glide
         .with(context)
         .load(url)
+        .apply(RequestOptions().override(400, 400))
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(this)
 }
