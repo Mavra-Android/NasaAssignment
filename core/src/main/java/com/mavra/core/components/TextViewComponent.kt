@@ -10,4 +10,5 @@ class TextViewComponent @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) :
     AppCompatTextView(context, attrs, defStyleAttr) {
+
 }
