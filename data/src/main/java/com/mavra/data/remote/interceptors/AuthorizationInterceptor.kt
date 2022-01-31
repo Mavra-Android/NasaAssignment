@@ -18,7 +18,7 @@ class AuthorizationInterceptor @Inject constructor() : Interceptor {
     }
     override fun intercept(chain: Interceptor.Chain): Response =
         with(chain.request()) {
-            val url = url().newBuilder()
+            val url = url.newBuilder()
                 .addQueryParameter(QUERY_API_KEY, BuildConfig.API_KEY)
                 .build()
             chain.proceed(newBuilder().url(url).build())
