@@ -9,7 +9,7 @@ plugins {
 
 android {
     compileSdk = Configs.compileSdk
-    defaultConfig{
+    defaultConfig {
         applicationId = Configs.applicationId
         versionCode = Configs.versionCode
         versionName = Configs.versionName
@@ -33,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = Options.jvmTarget
     }
-    viewBinding{
+    viewBinding {
         isEnabled = true
     }
 
@@ -53,8 +53,11 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":core"))
+    implementation(project(":shared"))
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.junit_ext)
     androidTestImplementation(Libs.espresso)
     kapt(Libs.hiltCompiler)
+
+
 }

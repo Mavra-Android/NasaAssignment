@@ -4,6 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 
-class TextViewComponent(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
+class TextViewComponent @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) :
     AppCompatTextView(context, attrs, defStyleAttr) {
 }

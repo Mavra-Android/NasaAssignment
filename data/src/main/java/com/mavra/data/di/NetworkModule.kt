@@ -1,5 +1,11 @@
 package com.mavra.data.di
 
+import android.content.Context
+import com.facebook.flipper.android.AndroidFlipperClient
+import com.facebook.flipper.plugins.inspector.DescriptorMapping
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.mavra.data.BuildConfig
 import com.mavra.data.adapters.*
 import com.mavra.data.remote.NasaService
@@ -11,6 +17,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -39,11 +46,19 @@ object NetworkModule {
 
     @Provides
     fun provideOkHttpClient(
+        @ApplicationContext context: Context,
         authorizationInterceptor: AuthorizationInterceptor
-    ) =
-        OkHttpClient.Builder()
+    ): OkHttpClient {
+        val flipper = AndroidFlipperClient.getInstance(context)
+        val networkPlugin = NetworkFlipperPlugin()
+        flipper.addPlugin(InspectorFlipperPlugin(context, DescriptorMapping.withDefaults()))
+        flipper.addPlugin(networkPlugin)
+        flipper.start()
+        return OkHttpClient.Builder()
+            .addInterceptor(FlipperOkhttpInterceptor(networkPlugin))
             .addInterceptor(authorizationInterceptor)
             .build()
+    }
 
     @Provides
     fun provideRetrofit(

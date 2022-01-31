@@ -4,6 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 
-class EditTextViewComponent(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
+class EditTextViewComponent @JvmOverloads constructor(context: Context, attrs: AttributeSet?= null, defStyleAttr: Int = 0) :
     AppCompatEditText(context, attrs, defStyleAttr) {
 }
