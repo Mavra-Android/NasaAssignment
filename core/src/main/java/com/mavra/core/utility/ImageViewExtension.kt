@@ -9,5 +9,6 @@ fun ImageViewComponent.loadImage(url: String) {
         .with(context)
         .load(url)
         .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .fitCenter()
         .into(this)
 }

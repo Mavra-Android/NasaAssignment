@@ -3,22 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="300dp"
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="8dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp">
 
-        <com.mavra.core.components.base_components.ImageViewComponent
-            android:id="@+id/ivRover"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:scaleType="centerInside"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.mavra.core.components.base_components.ImageViewComponent
+                android:id="@+id/ivRover"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.mavra.core.components.base_components.TextViewComponent
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="end"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="20-05-05" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </com.google.android.material.card.MaterialCardView>
 
