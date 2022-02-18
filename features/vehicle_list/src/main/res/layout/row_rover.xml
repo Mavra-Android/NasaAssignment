@@ -21,7 +21,7 @@
             <com.mavra.core.components.base_components.ImageViewComponent
                 android:id="@+id/ivRover"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="20-05-05" />
+                tools:text="@string/app_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
