@@ -3,5 +3,4 @@
     <declare-styleable name="CustomToolbar">
         <attr name="android:text" format="string" />
     </declare-styleable>
-
 </resources>
