@@ -9,5 +9,5 @@ import javax.inject.Singleton
 @Singleton
 class DomainPhotoMapper @Inject constructor(
 ) : Mapper<PhotoResponse, DomainPhoto> {
-    override fun mapTo(out: PhotoResponse): DomainPhoto = DomainPhoto(out.imgSrc)
+    override fun mapTo(out: PhotoResponse): DomainPhoto = DomainPhoto(out.id,out.earthDate,out.imgSrc)
 }
