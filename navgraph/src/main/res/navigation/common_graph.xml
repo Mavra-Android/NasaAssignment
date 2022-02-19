@@ -3,11 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/common_graph"
-    app:startDestination="@id/vehicleListFragment">
+    app:startDestination="@id/vehicleDetailFragment">
     <fragment
         android:id="@+id/vehicleListFragment"
         android:name="com.mavra.vehicle_list.VehicleListFragment"
         android:label="VehicleListFragment" />
 
+    <fragment
+        android:id="@+id/vehicleDetailFragment"
+        android:name="com.mavra.vehicle_detail.VehicleDetailFragment"
+        android:label="VehicleDetailFragment">
+
+    </fragment>
 
 </navigation>
