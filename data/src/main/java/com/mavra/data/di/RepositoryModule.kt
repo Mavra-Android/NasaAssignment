@@ -1,6 +1,7 @@
 package com.mavra.data.di
 
 import com.mavra.data.RepositoryImp
+import com.mavra.data.mapper.DomainPhotoDetailMapper
 import com.mavra.data.mapper.DomainPhotoMapper
 import com.mavra.data.remote.NasaService
 import com.mavra.data.remote.RemoteDataSource
@@ -24,7 +25,8 @@ class RepositoryModule {
     @Provides
     fun provideRepository(
         remoteDataSource: RemoteDataSource,
-        domainPhotoMapper: DomainPhotoMapper
-    ):Repository = RepositoryImp(remoteDataSource,domainPhotoMapper)
+        domainPhotoMapper: DomainPhotoMapper,
+        domainPhotoDetailMapper: DomainPhotoDetailMapper
+    ):Repository = RepositoryImp(remoteDataSource,domainPhotoMapper,domainPhotoDetailMapper)
 
 }

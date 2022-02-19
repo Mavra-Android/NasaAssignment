@@ -16,4 +16,9 @@ class RemoteDataSource @Inject constructor(
     suspend fun fetchPhotos(roverType: String, camera: String? = null) =
         nasaService.fetchPhotos(roverType, camera = camera).getOrThrow()
             .photos
+
+    suspend fun fetchPhotoDetail(roverType: String, id: String, camera: String?) =
+        nasaService.fetchPhotos(roverType = roverType, camera = camera).getOrThrow()
+            .photos
+            .find { it.id == id }
 }

@@ -1,19 +1,17 @@
 package com.mavra.core.utility
 
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
-import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.properties.ReadOnlyProperty
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
 
 
 fun Fragment.linearLayoutManagerVertical() = lazy {
@@ -27,7 +25,7 @@ fun Fragment.linearLayoutManagerHorizontal() = lazy {
 fun Fragment.dividerDecorationVertical(@DrawableRes separatorDrawable: Int? = null) = lazy {
     DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
         separatorDrawable?.let {
-            setDrawable(AppCompatResources.getDrawable(requireContext(),separatorDrawable)!!)
+            setDrawable(AppCompatResources.getDrawable(requireContext(), separatorDrawable)!!)
         }
     }
 }
@@ -35,25 +33,28 @@ fun Fragment.dividerDecorationVertical(@DrawableRes separatorDrawable: Int? = nu
 fun RecyclerView.attach(
     adapter: RecyclerView.Adapter<*>,
     layoutManager: RecyclerView.LayoutManager,
-    decoration: List<DividerItemDecoration> = listOf()
+    decoration: List<DividerItemDecoration> = listOf(),
+    viewLifecycleOwner: LifecycleOwner
 ) {
     this.adapter = adapter
     this.layoutManager = layoutManager
     decoration.forEach(this::addItemDecoration)
-    detach()
+    detach(viewLifecycleOwner)
 }
 
-fun RecyclerView.detach() {
-    ViewTreeLifecycleOwner.get(this)?.lifecycle?.addObserver(object : LifecycleObserver {
+fun RecyclerView.detach(viewLifecycleOwner: LifecycleOwner) {
+    viewLifecycleOwner.lifecycle.addObserver(object : LifecycleObserver {
         @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         fun onDestroy() {
-            adapter = null
-            layoutManager = null
-            clearOnScrollListeners()
-            val decoratorCount = itemDecorationCount
-            if (decoratorCount <= 0) return
-            for (i in 0 until decoratorCount) {
-                removeItemDecoration(getItemDecorationAt(0))
+            Handler(Looper.getMainLooper()).post {
+                layoutManager = null
+                adapter = null
+                clearOnScrollListeners()
+                val decoratorCount = itemDecorationCount
+                if (decoratorCount <= 0) return@post
+                for (i in 0 until decoratorCount) {
+                    removeItemDecoration(getItemDecorationAt(0))
+                }
             }
         }
     })

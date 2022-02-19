@@ -21,7 +21,7 @@ class ToolbarComponent @JvmOverloads constructor(
     init {
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.CustomToolbar)
         attributes.apply {
-            binding.toolbar.title = getString(R.styleable.CustomToolbar_android_text)
+            binding.customToolbar.title = getString(R.styleable.CustomToolbar_android_text)
         }
     }
 }
