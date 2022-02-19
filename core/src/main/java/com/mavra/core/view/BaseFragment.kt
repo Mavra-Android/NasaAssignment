@@ -14,21 +14,14 @@ import com.mavra.core.viewmodel.BaseViewModel
 
 abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragment() {
 
-    private var baseActivity: BaseActivity? = null
-
     private var _binding: T? = null
-
     val binding get() = _binding!!
-
-
     abstract fun getViewBinding(): T
-
-    protected val viewModel: ViewModel by lazy { ViewModelProvider(this).get(getViewModelClass()) }
     protected abstract fun getViewModelClass(): Class<ViewModel>
 
+
+    protected val viewModel: ViewModel by lazy { ViewModelProvider(this).get(getViewModelClass()) }
     private var runOnce = false
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,12 +51,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
     }
 
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is BaseActivity) {
-            this.baseActivity = context
-        }
-    }
 
     open fun runOnce() {}
 
@@ -84,9 +71,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         _binding = null
     }
 
-    fun finish() {
-        activity?.finish()
-    }
 
 
 }

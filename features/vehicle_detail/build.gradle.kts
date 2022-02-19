@@ -1,22 +1,19 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs")
 }
 
-
 android {
     compileSdk = Configs.compileSdk
     defaultConfig {
-        applicationId = Configs.applicationId
-        versionCode = Configs.versionCode
-        versionName = Configs.versionName
         minSdk = Configs.minSdk
         targetSdk = Configs.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -25,7 +22,6 @@ android {
             )
         }
     }
-
     compileOptions {
         sourceCompatibility = Options.sourceCompatibility
         targetCompatibility = Options.targetCompatibility
@@ -33,32 +29,24 @@ android {
     kotlinOptions {
         jvmTarget = Options.jvmTarget
     }
-    viewBinding {
+    viewBinding{
         isEnabled = true
     }
-
-
 }
 
 dependencies {
     implementation(Libs.coreKtx)
+    implementation(Libs.retrofit)
+    implementation(Libs.moshi)
+    implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
-    implementation(Libs.appCompat)
-    implementation(Libs.material)
-    implementation(Libs.constaint)
+    implementation(Libs.coroutine)
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
-    implementation(project(":features:vehicle_list"))
-    implementation(project(":features:vehicle_detail"))
-    implementation(project(":navgraph"))
-    implementation(project(":domain"))
-    implementation(project(":data"))
-    implementation(project(":core"))
-    implementation(project(":shared"))
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.junit_ext)
-    androidTestImplementation(Libs.espresso)
+    implementation(Libs.constaint)
     kapt(Libs.hiltCompiler)
-
-
+    implementation(project(":domain"))
+    implementation(project(":shared"))
+    implementation(project(":navgraph"))
+    implementation(project(":core"))
 }
