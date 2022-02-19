@@ -12,6 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+
     </style>
 
     <style name="Theme.NasaAssignment.NoActionBar">
@@ -22,4 +25,10 @@
     <style name="Theme.NasaAssignment.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.NasaAssignment.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextAppearance.MaterialComponents.Body1" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">@dimen/abc_text_size_display_1_material</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="fontFamily">@font/gotham_bold</item>
+    </style>
 </resources>
