@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Primary Colors -->
-    <color name="colorPrimary">#FF6200EE</color>
+    <color name="colorPrimary">#6C11EF</color>
     <color name="colorPrimaryVariant">#FF3700B3</color>
     <color name="colorOnPrimary">#FFFFFFFF</color>
 
     <!-- Secondary Colors -->
-    <color name="colorSecondary">#FF03DAC5</color>
+    <color name="colorSecondary">#B4B8B8</color>
     <color name="colorSecondaryVariant">#FF018786</color>
-    <color name="colorOnSecondary">#FFFFFFFF</color>
+    <color name="colorOnSecondary">#020202</color>
 
     <!-- Background, surface & Error -->
-    <color name="colorBackground">#ECEAE9</color>
+    <color name="colorBackground">#070200</color>
     <color name="colorSurface">#ECEAE9</color>
     <color name="colorError">#F92D01</color>
 
     <!-- On colors -->
-    <color name="colorOnBackground">#FF000000</color>
-    <color name="colorOnSurface">#FF000000</color>
+    <color name="colorOnBackground">#F3EEEE</color>
+    <color name="colorOnSurface">#FFFFFF</color>
     <color name="colorOnError">#FFFFFFFF</color>
 
 </resources>
