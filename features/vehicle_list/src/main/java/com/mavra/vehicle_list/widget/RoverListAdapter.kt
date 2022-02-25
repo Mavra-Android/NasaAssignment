@@ -23,7 +23,6 @@ class RoverListAdapter(
         }
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RowRoverBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)

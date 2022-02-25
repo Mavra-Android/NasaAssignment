@@ -2,15 +2,42 @@
     <!-- Base application theme. -->
     <style name="Theme.NasaAssignment" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/black_200</item>
-        <item name="colorPrimaryVariant">@color/black</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <!-- Background, surface & Error -->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorError">@color/colorError</item>
+
+        <!-- On colors -->
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorOnError">@color/colorOnError</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <!-- Typography -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.NasaTypographyStyles.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.NasaTypographyStyles.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.NasaTypographyStyles.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.NasaTypographyStyles.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.NasaTypographyStyles.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.NasaTypographyStyles.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.NasaTypographyStyles.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.NasaTypographyStyles.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.NasaTypographyStyles.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.NasaTypographyStyles.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.NasaTypographyStyles.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.NasaTypographyStyles.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.NasaTypographyStyles.Overline</item>
     </style>
 </resources>

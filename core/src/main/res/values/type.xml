@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.NasaTypographyStyles.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">96sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">60sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">48sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="TextAppearance.NasaTypographyStyles.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/gotham_light</item>
+        <item name="android:fontFamily">@font/gotham_light</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+</resources>
