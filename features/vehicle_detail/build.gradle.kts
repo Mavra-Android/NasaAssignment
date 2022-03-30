@@ -49,4 +49,5 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":navgraph"))
     implementation(project(":core"))
+    implementation(project(":core"))
 }

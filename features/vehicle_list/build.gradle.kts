@@ -41,6 +41,8 @@ dependencies {
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
     implementation(Libs.coroutine)
+    implementation(Libs.coroutineTest)
+    implementation(Libs.androidxCoreTest)
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
     implementation(Libs.constaint)
@@ -49,4 +51,7 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":navgraph"))
     implementation(project(":core"))
+    testImplementation(Libs.junit)
+    testImplementation(Libs.mockk)
+
 }

@@ -14,6 +14,7 @@ object Versions {
     const val navigation_ui = "2.3.5"
     const val junit = "4.+"
     const val junit_ext = "1.1.3"
+    const val mockk = "1.12.3"
     const val espresso = "3.4.0"
     const val coroutine = "1.5.2"
     const val arrow = "1.0.0"
@@ -24,6 +25,7 @@ object Versions {
     const val soLoader = "0.10.1"
     const val flipperNoop = "0.131.1"
     const val flipperNetworkPlugin = "0.131.1"
+    const val coreTest = "2.1.0"
 }
 
 object Libs {
@@ -51,6 +53,10 @@ object Libs {
     val soLoader by lazy { "com.facebook.soloader:soloader:${Versions.soLoader}" }
     val flipperNoop by lazy { "com.facebook.flipper:flipper-noop:${Versions.flipperNoop}" }
     val flipperNetworkPlugin by lazy { "com.facebook.flipper:flipper-network-plugin:${Versions.flipperNetworkPlugin}" }
+    val mockk by lazy { "io.mockk:mockk:${Versions.mockk}" }
+    val coroutineTest by lazy{ "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutine}"}
+    val androidxCoreTest by lazy {"androidx.arch.core:core-testing:${Versions.coreTest}"}
+
 }
 
 object Configs {
