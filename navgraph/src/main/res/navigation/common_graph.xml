@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/common_graph"
     app:startDestination="@id/vehicleListFragment">
@@ -9,5 +8,18 @@
         android:name="com.mavra.vehicle_list.VehicleListFragment"
         android:label="VehicleListFragment" />
 
+    <fragment
+        android:id="@+id/vehicleDetailFragment"
+        android:name="com.mavra.vehicle_detail.VehicleDetailFragment"
+        android:label="VehicleDetailFragment">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+
+    <action
+        android:id="@+id/global_detail"
+        app:destination="@id/vehicleDetailFragment" />
 
 </navigation>

@@ -9,7 +9,7 @@ plugins {
 
 android {
     compileSdk = Configs.compileSdk
-    defaultConfig{
+    defaultConfig {
         applicationId = Configs.applicationId
         versionCode = Configs.versionCode
         versionName = Configs.versionName
@@ -33,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = Options.jvmTarget
     }
-    viewBinding{
+    viewBinding {
         isEnabled = true
     }
 
@@ -49,12 +49,16 @@ dependencies {
     implementation(Libs.navigationFragment)
     implementation(Libs.navigationUI)
     implementation(project(":features:vehicle_list"))
+    implementation(project(":features:vehicle_detail"))
     implementation(project(":navgraph"))
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":core"))
+    implementation(project(":shared"))
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.junit_ext)
     androidTestImplementation(Libs.espresso)
     kapt(Libs.hiltCompiler)
+
+
 }

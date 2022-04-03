@@ -1,8 +1,8 @@
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -37,4 +37,9 @@ dependencies {
     implementation(Libs.moshiConverter)
     implementation(Libs.hilt)
     kapt(Libs.hiltCompiler)
+
+    api(Libs.flipper)
+    api(Libs.soLoader)
+    api(Libs.flipperNetworkPlugin)
+
 }
